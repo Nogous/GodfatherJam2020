@@ -11,16 +11,26 @@ public class PlayerEntity : MonoBehaviour
         Attacking,
     }
 
+    [Header("Controll")]
+    public KeyCode attack;
+
+    [Header("Move")]
     public float moveSpeed = 1f;
+
+    [Header("Attack")]
+    public float startTimeBtwAttack;
+    public Transform attackPos;
+    public float attackRange;
 
     public Rigidbody2D rb;
     public Camera cam;
 
     public float offsetAngle = 0f;
 
+    private State state;
     private Vector2 movement;
     private Vector3 mousePos;
-    private State state;
+    private float timeBtwAttack;
 
     private void Start()
     {
@@ -32,6 +42,8 @@ public class PlayerEntity : MonoBehaviour
         SetMovement();
 
         SetOrientation();
+
+        SetAttack();
     }
 
     private void FixedUpdate()
@@ -80,9 +92,25 @@ public class PlayerEntity : MonoBehaviour
     #region Attack
     private void SetAttack()
     {
+        /*
         Vector3 attackDir = (mousePos - transform.position).normalized;
         state = State.Attacking;
         // play animation
+        */
+        if (timeBtwAttack<=0)
+        {
+            if (Input.GetKey(attack))
+            {
+                timeBtwAttack = startTimeBtwAttack;
+
+                //Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, );
+            }
+
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
     }
     private void DoActionAttack()
     {
