@@ -13,12 +13,15 @@ public class PersonalityLifeScript : MonoBehaviour
     public Sprite angerPers;
 
     public int currentMood;
-    public int maxMood = 30;
-    public int damage = 1;
+    public int maxMood = 50;
+
+    public int currentEgo;
+    public int maxEgo = 50;
 
     void Awake()
     {
         currentMood = maxMood;
+        currentEgo = maxEgo;
 
         if (persoSprite == null)
         {
@@ -39,15 +42,15 @@ public class PersonalityLifeScript : MonoBehaviour
 
     void CheckMood()
     {
-        if (currentMood <= 30 && currentMood > 20)
+        if (currentMood <= 50 && currentMood > 45)
         {
             statu = StatuDePersonality.Content;
         }
-        else if (currentMood <= 20 && currentMood > 10)
+        else if (currentMood <= 45 && currentMood > 23)
         {
             statu = StatuDePersonality.Mitigate;
         }
-        else if (currentMood <= 10 && currentMood >=0)
+        else if (currentMood <= 23 && currentMood >=0)
         {
             statu = StatuDePersonality.Anger;
         }
@@ -71,6 +74,19 @@ public class PersonalityLifeScript : MonoBehaviour
             default:
                 break;
 
+        }
+
+        if (currentEgo <= 100 && currentEgo > 77)
+        {
+            statu = StatuDePersonality.Exited;
+        }
+        else if (currentEgo <= 77 && currentEgo > 55)
+        {
+            statu = StatuDePersonality.Happy;
+        }
+        else if (currentEgo <= 55 && currentEgo >= 50)
+        {
+            statu = StatuDePersonality.Content;
         }
 
     }

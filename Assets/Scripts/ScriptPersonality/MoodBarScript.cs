@@ -8,6 +8,7 @@ public class MoodBarScript : MonoBehaviour
     private PersonalityLifeScript moodPers;
     //public Slider moodBar;
     public Text text;
+    public Text egoColere;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,9 @@ public class MoodBarScript : MonoBehaviour
     {
         //moodBar.maxValue = moodPers.maxMood;
         //moodBar.value = moodPers.currentMood;
-        text.text = "Mood : " + moodPers.currentMood;
+        text.text = "Exitation/dépression : " + moodPers.currentMood;
+
+        egoColere.text = "Ego/Colère : " + moodPers.currentEgo;
+
     }
 }
