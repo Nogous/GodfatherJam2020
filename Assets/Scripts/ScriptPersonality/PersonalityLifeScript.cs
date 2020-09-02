@@ -8,42 +8,33 @@ public class PersonalityLifeScript : MonoBehaviour
 
     private SpriteRenderer persoSprite;
 
-    public Sprite HappyPers;
-    public Sprite MitigatePers;
-    public Sprite AngerPers;
+    public Sprite happyPers;
+    public Sprite mitigatePers;
+    public Sprite angerPers;
 
     public int currentMood;
     public int maxMood = 30;
+    public int damage = 1;
 
-    void Start()
+    void Awake()
     {
         currentMood = maxMood;
-        persoSprite = GetComponent<SpriteRenderer>();
+
+        if (persoSprite == null)
+        {
+            persoSprite = GetComponent<SpriteRenderer>();
+        }
     }
 
-    void Update()
+    private void Start()
     {
-
         CheckMood();
+    }
 
-        switch (statu)
-        {
-            case StatuDePersonality.Content:
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = HappyPers;
-                persoSprite.color = new Color(persoSprite.color.r, persoSprite.color.g, persoSprite.color.b, 1f);
-                break;
-
-            case StatuDePersonality.Mitigate:
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = MitigatePers;
-                persoSprite.color = new Color(255, 165, 0, 1f);
-                break;
-
-            case StatuDePersonality.Anger:
-                this.gameObject.GetComponent<SpriteRenderer>().sprite = AngerPers;
-                persoSprite.color = new Color(255, 0, 0, 1f);
-                break;
-
-        }
+    public void MoodValue(int i)
+    {
+        currentMood -= i;
+        CheckMood();
     }
 
     void CheckMood()
@@ -60,5 +51,27 @@ public class PersonalityLifeScript : MonoBehaviour
         {
             statu = StatuDePersonality.Anger;
         }
+
+        switch (statu)
+        {
+            case StatuDePersonality.Content:
+                persoSprite.sprite = happyPers;
+                persoSprite.color = new Color(persoSprite.color.r, persoSprite.color.g, persoSprite.color.b, 1f);
+                break;
+
+            case StatuDePersonality.Mitigate:
+                persoSprite.sprite = mitigatePers;
+                persoSprite.color = new Color(255, 165, 0, 1f);
+                break;
+
+            case StatuDePersonality.Anger:
+                persoSprite.sprite = angerPers;
+                persoSprite.color = new Color(255, 0, 0, 1f);
+                break;
+            default:
+                break;
+
+        }
+
     }
 }
