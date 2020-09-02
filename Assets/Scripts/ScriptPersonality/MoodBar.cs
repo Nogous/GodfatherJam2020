@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoodBarScript : MonoBehaviour
+public class MoodBar : MonoBehaviour
 {
-    private PersonalityLifeScript moodPers;
+    private PersonalityLife moodPers;
     //public Slider moodBar;
     public Text text;
     public Text egoColere;
@@ -13,7 +13,7 @@ public class MoodBarScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moodPers = FindObjectOfType<PersonalityLifeScript>();
+        moodPers = FindObjectOfType<PersonalityLife>();
         //text = GetComponent<Text>();
     }
 
@@ -22,9 +22,9 @@ public class MoodBarScript : MonoBehaviour
     {
         //moodBar.maxValue = moodPers.maxMood;
         //moodBar.value = moodPers.currentMood;
-        text.text = "Exitation/dépression : " + moodPers.currentMood;
+        text.text = "Exitation/dépression : " + moodPers.happinesse;
 
-        egoColere.text = "Ego/Colère : " + moodPers.currentEgo;
+        egoColere.text = "Ego/Colère : " + moodPers.ego;
 
     }
 }
