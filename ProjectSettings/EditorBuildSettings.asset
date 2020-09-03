@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Camille.unity
     guid: 18cff83766cb2b7469d37962f17a039a
+  - enabled: 1
+    path: Assets/Scenes/Thomas Test.unity
+    guid: 926020ccd6cd5874287f9dd6bbcf00af
+  - enabled: 1
+    path: Assets/Scenes/Personnality.unity
+    guid: 4208c7e4a6cc3d34895c275c79f6e2d0
   m_configObjects: {}
