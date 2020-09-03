@@ -195,10 +195,10 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
 
     #endregion
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isDragging)
-        Move(target.gameObject.transform.position);
+            Move(target.gameObject.transform.position);
     }
 
     private bool isDeliver = false;
@@ -207,11 +207,11 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     {
         if (isSlow)
         {
-            transform.position += ((Vector3)_target - transform.position).normalized * speed/10 * Time.deltaTime;
+            transform.position += ((Vector3)_target - transform.position).normalized * speed/10 * Time.fixedDeltaTime;
         }
         else
         {
-            transform.position += ((Vector3)_target - transform.position).normalized * speed *Time.deltaTime;
+            transform.position += ((Vector3)_target - transform.position).normalized * speed *Time.fixedDeltaTime;
         }
 
         if (isDeliver) return;

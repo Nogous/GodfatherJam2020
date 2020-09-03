@@ -677,7 +677,7 @@ MonoBehaviour:
   contentText: {fileID: 3155934271979404242}
   dateText: {fileID: 3155934271551525721}
   target: {fileID: 0}
-  speed: 0.3
+  speed: 80
   ego: 10
   happinesse: 0
   popularity: 10
