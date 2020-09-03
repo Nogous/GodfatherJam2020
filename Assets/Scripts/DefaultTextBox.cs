@@ -57,9 +57,13 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     public Sprite delColor;
     public Sprite likeColor;
 
+    private float timerDebug = 0f;
+
     #region SetUp
     public void SetUpTextBox(PersonalityLife _target,string _pseudo, string _content, int _ego, int _happinesse)
     {
+        timerDebug = 0f;
+
         target = _target;
         pseudo = _pseudo;
         content = _content;
@@ -199,6 +203,8 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     {
         if (!isDragging)
             Move(target.gameObject.transform.position);
+
+        timerDebug += Time.fixedDeltaTime;
     }
 
     private bool isDeliver = false;
@@ -221,6 +227,8 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
             isDeliver = true;
             target.ReceivingTwitte(happinesse, ego, twitteType, popularity, isLiked);
             gameObject.SetActive(false);
+
+            Debug.Log(timerDebug);
         }
     }
 
