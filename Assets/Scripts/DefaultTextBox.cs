@@ -14,7 +14,7 @@ public enum TwitteType
     NonSense,
 }
 
-public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPooledObject
 {
     TwitteType twitteType = TwitteType.Normal;
 
@@ -123,6 +123,13 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     {
         SetUpTextBox(pseudo, content);
     }
+
+
+
+    public void OnObjectSpawn(string _pseudo, string _content)
+    {
+        SetUpTextBox(_pseudo, _content);
+    }
     #endregion
 
     #region OnClick
@@ -134,6 +141,8 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     public void OnClickRT()
     {
         // test si peut rt
+        if (GameManager.Instance.currentRTCount > 0) return;
+        GameManager.Instance.RestartRTCountdawn();
 
         // up les message du genre
         isRT = !isRT;
@@ -145,6 +154,8 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
         {
             rT.sprite = rtGris;
         }
+
+        GameManager.Instance.SpawnMultiplicator(twitteType);
     }
 
     public void OnClickDel()
@@ -154,6 +165,9 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
 
     public void OnClickLike()
     {
+        if (GameManager.Instance.currentLikeCount > 0) return;
+        GameManager.Instance.RestartLikeCountdawn();
+
         isLiked = !isLiked;
         if (isLiked)
         {
@@ -188,10 +202,11 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
 
         if (isDeliver) return;
 
-        if (Vector2.Distance(transform.position, _target)<1f)
+        if (Vector2.Distance(transform.position, _target)<10f)
         {
             isDeliver = true;
             target.ReceivingTwitte(happinesse, ego, twitteType, popularity, isLiked);
+            Destroy(gameObject);
         }
     }
 

@@ -2,5 +2,5 @@
 
 public interface IPooledObject
 {
-    void OnObjectSpawn();
+    void OnObjectSpawn(string _pseudo, string _content);
 }

@@ -31,10 +31,14 @@ public class PersonalityLife : MonoBehaviour
 
     public int[] twitteTypeFactor;
 
+    public Text follower;
+    public Slider sliderEgo;
+
     void Awake()
     {
         happinesse = startMood;
         ego = startEgo;
+        popularity = startPopularity;
 
         if (image == null)
         {
@@ -64,8 +68,10 @@ public class PersonalityLife : MonoBehaviour
         }
         if (happinesse > 100) happinesse = 100;
         if (ego > 100) ego = 100;
+        sliderEgo.value = (float)ego/100f;
 
         if (popularity > 100) popularity = 100;
+        //follower.text = popularity.ToString();
 
         UpdateFace();
     }
