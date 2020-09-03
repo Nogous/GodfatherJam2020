@@ -207,11 +207,11 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     {
         if (isSlow)
         {
-            transform.position += ((Vector3)_target - transform.position).normalized * speed/10;
+            transform.position += ((Vector3)_target - transform.position).normalized * speed/10 * Time.deltaTime;
         }
         else
         {
-            transform.position += ((Vector3)_target - transform.position).normalized * speed;
+            transform.position += ((Vector3)_target - transform.position).normalized * speed *Time.deltaTime;
         }
 
         if (isDeliver) return;
