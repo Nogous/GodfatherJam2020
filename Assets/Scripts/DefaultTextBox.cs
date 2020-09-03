@@ -8,10 +8,11 @@ using UnityEngine.UIElements;
 public enum TwitteType
 {
     Normal,
-    Insultes,
-    Compliments,
-    Critiques,
-    NonSense,
+    CritNegative,
+    CritPositive,
+    Insulte,
+    Compliment,
+    Inutile,
 }
 
 public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler, IPooledObject
@@ -153,7 +154,8 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     #region OnClick
     public void OnClickBan()
     {
-        // ha ha ha sa vas etre la merde
+        GameManager.Instance.AddBan(pseudo);
+        OnClickDel();
     }
 
     public void OnClickRT()
@@ -227,8 +229,6 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
             isDeliver = true;
             target.ReceivingTwitte(happinesse, ego, twitteType, popularity, isLiked);
             gameObject.SetActive(false);
-
-            Debug.Log(timerDebug);
         }
     }
 

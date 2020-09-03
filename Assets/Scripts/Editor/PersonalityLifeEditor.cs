@@ -15,15 +15,15 @@ public class PersonalityLifeEditor : Editor
 
         if (persona.twitteTypeFactor == null)
         {
-            persona.twitteTypeFactor = new int[TwitteType.NonSense.GetHashCode()+1];
+            persona.twitteTypeFactor = new int[TwitteType.Inutile.GetHashCode()+1];
             for (int i = persona.twitteTypeFactor.Length; i-->0;)
             {
                 persona.twitteTypeFactor[i] = 1;
             }
         }
-        else if (persona.twitteTypeFactor.Length != TwitteType.NonSense.GetHashCode()+1)
+        else if (persona.twitteTypeFactor.Length != TwitteType.Inutile.GetHashCode()+1)
         {
-            persona.twitteTypeFactor = new int[TwitteType.NonSense.GetHashCode()+1];
+            persona.twitteTypeFactor = new int[TwitteType.Inutile.GetHashCode()+1];
             for (int i = persona.twitteTypeFactor.Length; i-- > 0;)
             {
                 persona.twitteTypeFactor[i] = 1;

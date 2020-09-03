@@ -519,81 +519,15 @@ MonoBehaviour:
   rTSpawnMultiplicator: 1
   likeDuration: 1
   rTDuration: 1
-  SpawnRateTwitte: 10
-  normalTwitteSpawnRate: 50
-  insultesTwitteSpawnRate: 100
-  complimentsTwitteSpawnRate: 50
-  critiquesTwitteSpawnRate: 100
-  nonSenseTwitteSpawnRate: 100
+  SpawnRateTwitte: 5
+  inutileTwitteSpawnRate: 100
+  critNegativeTwitteSpawnRate: 100
+  critPositiveTwitteSpawnRate: 100
+  insulteTwitteSpawnRate: 100
+  complimentTwitteSpawnRate: 100
   useLikeCountdawn: 1
   useRTCountdawn: 1
-  perso1Twittes:
-  - twitteType: 3
-    pseudo: 'ElMaestroDiego '
-    corp: "T'es vraiment le pire des pr\xE9sidents am\xE9ricains ! T'es une merde
-      ! Un p\xE9dophile ! Un assassin ! En enfer tu finiras connard !"
-    impactEgo: -15
-    impactHappy: 0
-  - twitteType: 3
-    pseudo: 'coutureo1231 '
-    corp: "Il est une crasse humaine! Qu\u2019il soit Pr\xE9sident est la pire des
-      aberrations!! Le pire c\u2019est qu\u2019il pourrait rester au pouvoir ! Quelle
-      triste moment de l\u2019histoire..."
-    impactEgo: 0
-    impactHappy: -15
-  - twitteType: 2
-    pseudo: 'FZ1034535507 '
-    corp: "Trump est un bon pr\xE9sident"
-    impactEgo: 10
-    impactHappy: 5
-  - twitteType: 2
-    pseudo: plaroch
-    corp: "Trump : pr\xE9sident humain et compatissant. Un homme bon, tol\xE9rant,
-      juste, mais ferme sur ses principes. Tout le contraire des enrag\xE9s de la
-      gauche d\xE9mocrate !"
-    impactEgo: 5
-    impactHappy: 10
-  - twitteType: 3
-    pseudo: 'gentilly1 '
-    corp: Trump est simplement un con ! Il est le pire president de l'histoire !
-      Il ne sait pas ce qu'il fait.
-    impactEgo: -10
-    impactHappy: 0
-  - twitteType: 2
-    pseudo: jlkBlackburn
-    corp: "On reproche \xE0 Trump sa brutalit\xE9 envers les m\xE9dias, qu'il traite
-      d'ennemis du peuple et de fake news. Pourtant ces derniers mois rien ne lui
-      donne tort..."
-    impactEgo: 10
-    impactHappy: 0
-  - twitteType: 2
-    pseudo: LogellamD
-    corp: "Trump est le meilleur pr\xE9sident que les \xE9tats Unis puissent r\xEAver,
-      parce qu il aime son pays et fera toujours tous pour lui."
-    impactEgo: 0
-    impactHappy: 15
-  - twitteType: 2
-    pseudo: 'Quantic_QBit '
-    corp: "j'ai toujours soutenu Trump comme le meilleur pr\xE9sident, j'aimerais
-      qu'il soit aussi le notre et pense que si l'Europe est lib\xE9r\xE9e de la
-      dictature ce sera gr\xE2ce \xE0 lui."
-    impactEgo: 15
-    impactHappy: 0
-  - twitteType: 2
-    pseudo: justiceavenir
-    corp: "\"Trump est le meilleur pr\xE9sident que les usa ont connu ces 50 derni\xE8res
-      ann\xE9es. Il a su relever le plus grand des d\xE9fis, \xE9carter du pouvoir
-      les projets Satanistes des tar\xE9s de gauchiasses qui dominent et minent le
-      peuple\""
-    impactEgo: 5
-    impactHappy: 10
-  - twitteType: 2
-    pseudo: '"kiddioba "'
-    corp: "Il faut arr\xEAter d\u2019\xE9couter les m\xE9dias qui veulent nous faire
-      croire que Donald Trump est le plus mauvais des pr\xE9sidents, la r\xE9alit\xE9
-      est que c\u2019est le meilleur pr\xE9sident en cette p\xE9riode exceptionnelle."
-    impactEgo: 0
-    impactHappy: 10
+  persoTwittes: []
   perso1Obj: {fileID: 824146927}
   spawnRange: 1000
 --- !u!4 &233488858
@@ -914,19 +848,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   documentId: 1cK1PGkBKDU-Fo6dLv8e1onFvy0m02ja3UFQIgcwgJgA
-  idleModeSheetName: Sheet1
+  idleModeSheetName: Donald Trump
   idleModeCellRange:
     startCell: A1
-    endCell: F6
+    endCell: E39
   apiKey: AIzaSyC-nolb4VMwWcqWho6KDqJaIxjWUX1dtDQ
-  resultJson: "{\n  \"range\": \"Sheet1!A1:F6\",\n  \"majorDimension\": \"ROWS\",\n 
-    \"values\": [\n    [\n      \"1=iucv\",\n      \"tu\",\n      \"vas\",\n     
-    \"bien\"\n    ],\n    [\n      \"q\",\n      \"iygf\",\n      \"oug\",\n     
-    \"12\"\n    ],\n    [\n      \"lorel\",\n      \"\",\n      \"owg\",\n      \"de\"\n   
-    ],\n    [\n      \"egbe\",\n      \"eb\",\n      \"ebeb\",\n      \"eberfb\"\n   
-    ],\n    [\n      \"45\",\n      \"ergb\",\n      \"547\",\n      \"erbv\"\n   
-    ],\n    [\n      \"1\",\n      \"2\",\n      \"3\",\n      \"4\",\n      \"5\",\n     
-    \"6\"\n    ]\n  ]\n}\n"
+  resultJson: "{\n  \"range\": \"'Donald Trump'!A1:E39\",\n  \"majorDimension\":
+    \"ROWS\",\n  \"values\": [\n    [\n      \"ElMaestroDie\\n\",\n      \"T'es une
+    merde! Un p\xE9dophile! Un assassin! En enfer tu finiras connard!\",\n      \"insulte\",\n     
+    \"0\",\n      \"-10\"\n    ],\n    [\n      \"coutureo121\\n\",\n      \"Qu\u2019il
+    soit Pr\xE9sident est une aberrations! En plus il pourrait rester au pouvoir
+    ! Quel triste moment de l\u2019histoire..\",\n      \"critique n\xE9gative\",\n     
+    \"-15\",\n      \"0\"\n    ],\n    [\n      \"FZ10345\\n\",\n      \"Trump est
+    un bon pr\xE9sident\",\n      \"critique positive\",\n      \"10\",\n      \"0\"\n   
+    ],\n    [\n      \"plaroc\",\n      \"Pr\xE9sident humain et compatissant. Un
+    homme bon, tol\xE9rant, juste. Tout le contraire des enrag\xE9s de la gauche
+    d\xE9mocrate !\",\n      \"critique positive\",\n      \"10\",\n      \"5\"\n   
+    ],\n    [\n      \"gentilly134\\n\",\n      \"Trump est simplement un con ! Il
+    est le pire president de l'histoire ! Il ne sait pas ce qu'il fait.\",\n     
+    \"critique n\xE9gative\",\n      \"-10\",\n      \"0\"\n    ],\n    [\n     
+    \"jlkBlackbun\",\n      \"On reproche \xE0 Trump sa brutalit\xE9 envers les m\xE9dias,
+    qu'il traite de fake news. Pourtant il n'a pas tort...\",\n      \"critique positive\",\n     
+    \"0\",\n      \"10\"\n    ],\n    [\n      \"LogelamD\\n\",\n      \"Trump est
+    le meilleur pr\xE9sident que les USA puissent r\xEAver, parce qu il aime son
+    pays et fera toujours tous pour lui.\",\n      \"compliment\",\n      \"10\",\n     
+    \"5\"\n    ],\n    [\n      \"QuanticBit\\n\",\n      \"J'aimerais que Trump
+    soit notre pr\xE9sident et pense que si l'Europe est lib\xE9r\xE9e de la dictature
+    ce sera gr\xE2ce \xE0 lui.\",\n      \"compliment\",\n      \"15\",\n      \"0\"\n   
+    ],\n    [\n      \"justiceavenir\",\n      \"il a relever le plus grand d\xE9fi,
+    \xE9carter du pouvoir les projets Satanistes des tar\xE9s de gauchiasses qui
+    minent le peuple\",\n      \"critique positive \",\n      \"5\",\n      \"10\"\n   
+    ],\n    [\n      \"kidioba\\n\",\n      \"Les m\xE9dias disent qu'il est le pire
+    des pr\xE9sidents, la r\xE9alit\xE9 est qu'il est le meilleur en cette p\xE9riode
+    exceptionnelle\",\n      \"compliment\",\n      \"10\",\n      \"0\"\n    ],\n   
+    [\n      \"ProjectLincoln\",\n      \"Donald Trump is the worst president in
+    American history.\",\n      \"critique n\xE9gative\",\n      \"-15\",\n     
+    \"0\"\n    ],\n    [\n      \"rickwtyler\",\n      \"Trump said he wouldn't mind
+    being hit with paintballs. Looks like he already took a direct orange hit to
+    the face.\",\n      \"insulte\",\n      \"0\",\n      \"-15\"\n    ],\n    [\n     
+    \"SassyGirlBoss\",\n      \"I am not kidding Trump is making me physically sick..
+    Him defending killers! and spreading all this hate, it scares me..\",\n     
+    \"critique n\xE9gative\",\n      \"0\",\n      \"-10\"\n    ],\n    [\n     
+    \"Olivia_blabla\\r\",\n      \"Donald Trump ferme la fronti\xE8re au Mexique
+    et TikTok. Avec de la chance, le prochain truc qu\u2019il ferme, c\u2019est sa
+    gueule.\",\n      \"insulte\",\n      \"0\",\n      \"-15\"\n    ],\n    [\n     
+    \"ClaireVLeon\\r\",\n      \"Le Mexique va fermer sa fronti\xE8re avec les USA
+    \xE0 cause du virus, meilleur pied de nez qu\u2019ils peuvent faire \xE0 Trump
+    ! \",\n      \"critique n\xE9gative \",\n      \"0\",\n      \"-10\"\n    ],\n   
+    [\n      \"franckdavid175\\r\",\n      \"Trump est indigne d'\xEAtre pr\xE9sident
+    c'est un raciste, il doit \xEAtre d\xE9mis de ces fonctions de pr\xE9sident en
+    novembre !!!!\",\n      \"critique n\xE9gative\",\n      \"-15\",\n      \"0\"\n   
+    ],\n    [\n      \"claudesavoie88\\r\",\n      \"il faudrait a la france 4 d\xE9cennies
+    d'un pr\xE9sident comme poutine ou trump pour que la france retrouve ses vrais
+    racines!\",\n      \"compliment\",\n      \"15\",\n      \"0\"\n    ],\n    [\n     
+    \"joncoopertweets\\n\",\n      \"Donald Trump might be the dumbest president
+    the US has ever had \",\n      \"insulte\",\n      \"-15\",\n      \"0\"\n   
+    ],\n    [\n      \"r4ndxm\",\n      \"Trump administration is expected to publicize
+    the names of hospitals with missing data in the federal pandemic reporting system.\",\n     
+    \"inutile \",\n      \"0\",\n      \"0\"\n    ],\n    [\n      \"Tupli\",\n     
+    \"Donald Trump is suspending aid to Ethiopia because of a dispute about a Nile
+    River dam.\",\n      \"inutile \",\n      \"0\",\n      \"0\"\n    ],\n    [\n     
+    \"Russianguy\",\n      \"\\n\u0422\u0440\u0430\u043C\u043F - \u043B\u0443\u0447\u0448\u0438\u0439
+    \u0430\u043C\u0435\u0440\u0438\u043A\u0430\u043D\u0441\u043A\u0438\u0439 \u043F\u0440\u0435\u0437\u0438\u0434\u0435\u043D\u0442
+    \u0432 \u0438\u0441\u0442\u043E\u0440\u0438\u0438 !!!!!!!!!! \",\n      \"compliment\",\n     
+    \"5\",\n      \"0\"\n    ],\n    [\n      \"vladimir564\",\n      \"\u0422\u0440\u0430\u043C\u043F
+    - \u0445\u0443\u0434\u0448\u0438\u0439 \u0430\u043C\u0435\u0440\u0438\u043A\u0430\u043D\u0441\u043A\u0438\u0439
+    \u043F\u0440\u0435\u0437\u0438\u0434\u0435\u043D\u0442 \u0432 \u0438\u0441\u0442\u043E\u0440\u0438\u0438
+    !!!!!!! \",\n      \"insulte\",\n      \"-5\",\n      \"0\"\n    ],\n    [\n     
+    \"gentilly134\\r\",\n      \"Trump never had a plan for helping to combat COVID
+    he's prepared for no other outcomes than \u201CVirus goes away by itself\u201D\",\n     
+    \"critique n\xE9gative\",\n      \"0\",\n      \"-10\"\n    ],\n    [\n     
+    \"gentilly134\\r\",\n      \"Raise your hand if you think that Donald Trump needs
+    to be removed from office immediately.\",\n      \"insulte\",\n      \"-15\",\n     
+    \"0\"\n    ],\n    [\n      \"Chic4n3ry\\r\\n\",\n      \"It's terribly sad to
+    see so many folks fall prey.\\n\\n\\\"Is Trump Really a Con Man?\\\"\\n\\nSee
+    the attached.\\n\\nThe short answer is \\\"yes.\\\"\",\n      \"critique n\xE9gative\",\n     
+    \"0\",\n      \"-10\"\n    ],\n    [\n      \"GRJockfredar\\r\\n\",\n      \"ayer
+    so\xF1\xE9 que le ganaba las elecciones para ser presidente, presentando mi proyecto
+    capitalista con tintes socialistas\",\n      \"inutile \",\n      \"0\",\n     
+    \"0\"\n    ],\n    [\n      \"FZ10345\\n\",\n      \"Trump is a president for
+    all Americans not just those who agree with him politically.\",\n      \"critique
+    positive\",\n      \"10\",\n      \"0\"\n    ],\n    [\n      \"Nerdolcram\\r\\n\",\n     
+    \"THE LONGER YOU GO WITHOUT TELLING ME YOUR FAVOURITE CHEESE THE WEAKER YOU LOOK
+    AS A LEADER!\",\n      \"inutile \",\n      \"0\",\n      \"0\"\n    ],\n   
+    [\n      \"joncoopertweets\",\n      \"donald trump cares for no one but himself
+    !\",\n      \"insulte\",\n      \"0\",\n      \"-10\"\n    ],\n    [\n      \"FZ10345\\r\",\n     
+    \"I met two ladies one was pro Trump the other was pro Biden when I left the
+    luncheon they were both pro Trump.\",\n      \"\\ncritique positive\",\n     
+    \"10\",\n      \"0\"\n    ],\n    [\n      \"plaroc\",\n      \"the best president
+    in the world\",\n      \"compliment\",\n      \"15\",\n      \"0\"\n    ],\n   
+    [\n      \"Rmartinezh52\\n\",\n      \"The Lord Jesus loves and blesses the lion
+    heart of Mr President!\",\n      \"compliment\",\n      \"15\",\n      \"0\"\n   
+    ],\n    [\n      \"mag_enruss\\r\\n\",\n      \"Trump saved Wisconsin!\",\n     
+    \"compliment\",\n      \"0\",\n      \"10\"\n    ],\n    [\n      \"plaroc\\r\",\n     
+    \"We love you and we have your back, Mr. President.\",\n      \"compliment\",\n     
+    \"10\",\n      \"0\"\n    ],\n    [\n      \"joncoopertweets\",\n      \"Trump\u2019s
+    America is a disaster! We need Joe Biden!\",\n      \"insulte\",\n      \"-15\",\n     
+    \"0\"\n    ],\n    [\n      \"joncoopertweets\",\n      \"VOTE BIDEN AS THOUGH
+    YOUR LIFE DEPENDED ON IT. BECAUSE, IT DOES.\",\n      \"critique n\xE9gative\",\n     
+    \"-15\",\n      \"0\"\n    ],\n    [\n      \"norim4n_rk\\r\\n\",\n      \"Dont
+    you have anything better to do than be on Twitter everyday harassing the president.\",\n     
+    \"compliment\",\n      \"10\",\n      \"0\"\n    ],\n    [\n      \"plaroc\\r\",\n     
+    \"Joe Biden is a disgusting racist pig.\",\n      \"compliment\",\n      \"0\",\n     
+    \"15\"\n    ],\n    [\n      \"FZ10345\\r\",\n      \" Why dont you go do something
+    better than hating on our president get over it he is not going no where. #trump2020\",\n     
+    \"compliment\",\n      \"15\",\n      \"0\"\n    ]\n  ]\n}\n"
   result: []
 --- !u!4 &555691909
 Transform:
@@ -1180,7 +1206,7 @@ MonoBehaviour:
   factorHappinesse: 1
   factorEgo: 1
   likeFactor: 2
-  twitteTypeFactor: 010000000f0000000f0000000a00000001000000
+  twitteTypeFactor: 010000000100000001000000010000000100000001000000
   follower: {fileID: 1725067047}
   sliderEgo: {fileID: 987132947}
   sliderEgoText: {fileID: 1292168109}

@@ -15,12 +15,28 @@ public class GetGoogleShit : MonoBehaviour
         public string endCell;
     }
 
-    // https://docs.google.com/spreadsheets/d/1SKBWUcdgmPfcCn9k0BZapoHY8JdBOi_0t8OTA4drjRg/edit?usp=sharing
+    #region
+    public static GetGoogleShit Instance = null;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Debug.LogWarning("Instance of GetGoogleShit allready exist.");
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
 
     // tmp https://docs.google.com/spreadsheets/d/1cK1PGkBKDU-Fo6dLv8e1onFvy0m02ja3UFQIgcwgJgA/edit?usp=sharing
 
     public string documentId = "1SKBWUcdgmPfcCn9k0BZapoHY8JdBOi_0t8OTA4drjRg";
-    public string idleModeSheetName = "Donald_Trump";
+    public string idleModeSheetName = "Donald Trump";
     public Cell idleModeCellRange;
     public string apiKey;
 
@@ -51,6 +67,8 @@ public class GetGoogleShit : MonoBehaviour
 
         yield return request.SendWebRequest();
 
+        List<TwitteData> twitteDatas = new List<TwitteData>();
+
         if (request.isNetworkError)
         {
             Debug.Log("Error");
@@ -61,30 +79,38 @@ public class GetGoogleShit : MonoBehaviour
         }
         else
         {
-            #region test
 
-            string firstSelection = request.downloadHandler.text.Substring(0,5);
-            int index = firstSelection.IndexOf('=');
-            Debug.Log(index);
-
-            #endregion
-
-            Debug.Log("Ok: " + request.responseCode);
             try
             {
                 resultJson = request.downloadHandler.text;
 
-                //Dictionary<string, string> loadedData = JsonUtility.FromJson<Dictionary<string, string>>(resultJson);
-
-                //GoogleSheetData data = new GoogleSheetData();
-                //data.values = new string[10, 10];
-
-                //string json = JsonUtility.ToJson(data);
-                //Debug.Log(json);
-
                 SheetData sheetData = JsonConvert.DeserializeObject<SheetData>(resultJson, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
 
-                //result = JsonConvert.DeserializeObject<T>(request.downloadHandler.text, defaultJsonSerializationSetting);
+                for (int i = sheetData.values.Count;i-->0;)
+                {
+                    TwitteType type = TwitteType.Normal;
+
+                    switch (sheetData.values[i][2])
+                    {
+                        case "critique négative":
+                            type = TwitteType.CritNegative;
+                            break;
+                        case "critique positive":
+                            type = TwitteType.CritPositive;
+                            break;
+                        case "insulte":
+                            type = TwitteType.Insulte;
+                            break;
+                        case "compliment":
+                            type = TwitteType.Compliment;
+                            break;
+                        case "inutile":
+                            type = TwitteType.Insulte;
+                            break;
+                    }
+
+                    twitteDatas.Add(new TwitteData(sheetData.values[i][0], sheetData.values[i][1], type, int.Parse(sheetData.values[i][3]), int.Parse(sheetData.values[i][4])));
+                }
 
             }
             catch (Exception e)
@@ -93,6 +119,9 @@ public class GetGoogleShit : MonoBehaviour
             }
 
         }
+
+        if(GameManager.Instance != null)
+        GameManager.Instance.StartRound(twitteDatas);
     }
 
     private const string k_googleSheetDocID = "";
