@@ -28,6 +28,7 @@ public class ObjectPooler : MonoBehaviour
 
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> poolDictionary;
+    public Transform parentPos;
 
     private void Start()
     {
@@ -39,7 +40,7 @@ public class ObjectPooler : MonoBehaviour
 
             for (int i = 0; i < pool.size; i++)
             {
-                GameObject obj = Instantiate(pool.prefab);
+                GameObject obj = Instantiate(pool.prefab, parentPos);
                 obj.SetActive(false);
                 objectPool.Enqueue(obj);
             }
@@ -48,7 +49,7 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation, string _pseudo, string _content)
+    public GameObject SpawnFromPool(string tag, Vector3 position, Quaternion rotation, PersonalityLife _target, string _pseudo, string _content, int _ego, int happinesse)
     {
         if (!poolDictionary.ContainsKey(tag))
         {
@@ -66,7 +67,7 @@ public class ObjectPooler : MonoBehaviour
 
         if (pooledObject!= null)
         {
-            pooledObject.OnObjectSpawn(_pseudo, _content);
+            pooledObject.OnObjectSpawn(_target, _pseudo, _content, _ego, happinesse);
         }
 
         poolDictionary[tag].Enqueue(objectToSpawn);

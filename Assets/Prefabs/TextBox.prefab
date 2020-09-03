@@ -627,7 +627,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3155934271784453804}
   - component: {fileID: 3155934271784453805}
-  - component: {fileID: 3155934271784453806}
   m_Layer: 5
   m_Name: TextBox
   m_TagString: Untagged
@@ -694,32 +693,6 @@ MonoBehaviour:
   rtColor: {fileID: 21300000, guid: 02fbb4a53e02d1f44ba5d793825cb5e3, type: 3}
   delColor: {fileID: 0}
   likeColor: {fileID: 21300000, guid: 52f74150d4a142e4dac83c40e1c05170, type: 3}
---- !u!61 &3155934271784453806
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3155934271784453803}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 512, y: 275}
-  m_EdgeRadius: 0
 --- !u!1 &3155934271915209967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.08235294, g: 0.1254902, b: 0.16862746, a: 0.4392157}
+  m_Color: {r: 0.08235294, g: 0.1254902, b: 0.16862746, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

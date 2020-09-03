@@ -2,5 +2,5 @@
 
 public interface IPooledObject
 {
-    void OnObjectSpawn(string _pseudo, string _content);
+    void OnObjectSpawn(PersonalityLife _target,string _pseudo, string _content, int _ego, int happynesse);
 }

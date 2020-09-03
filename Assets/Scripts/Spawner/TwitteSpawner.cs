@@ -20,6 +20,6 @@ public class TwitteSpawner : MonoBehaviour
 
     private void Update()
     {
-        objectPooler.SpawnFromPool("Twitte", transform.position, Quaternion.identity,"","");
+        //objectPooler.SpawnFromPool("Twitte", transform.position, Quaternion.identity,null,"","");
     }
 }

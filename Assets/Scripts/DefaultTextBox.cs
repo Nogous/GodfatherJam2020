@@ -58,10 +58,13 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     public Sprite likeColor;
 
     #region SetUp
-    public void SetUpTextBox(string _pseudo, string _content)
+    public void SetUpTextBox(PersonalityLife _target,string _pseudo, string _content, int _ego, int _happinesse)
     {
+        target = _target;
         pseudo = _pseudo;
         content = _content;
+        ego = _ego;
+        happinesse = _happinesse;
 
         speudoText.text = pseudo + "\n"+"@"+pseudo;
         contentText.text = content;
@@ -121,14 +124,14 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
 
     public void SetUpTextBox()
     {
-        SetUpTextBox(pseudo, content);
+        SetUpTextBox(target, pseudo, content, ego, happinesse);
     }
 
 
 
-    public void OnObjectSpawn(string _pseudo, string _content)
+    public void OnObjectSpawn(PersonalityLife _target, string _pseudo, string _content, int _ego, int _happinesse)
     {
-        SetUpTextBox(_pseudo, _content);
+        SetUpTextBox(_target ,_pseudo, _content, _ego, _happinesse);
     }
     #endregion
 
@@ -193,11 +196,11 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     {
         if (isSlow)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target, speed/10);
+            transform.position += ((Vector3)_target - transform.position).normalized * speed/10;
         }
         else
         {
-            transform.position = Vector2.MoveTowards(transform.position, _target, speed);
+            transform.position += ((Vector3)_target - transform.position).normalized * speed;
         }
 
         if (isDeliver) return;
@@ -206,7 +209,7 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
         {
             isDeliver = true;
             target.ReceivingTwitte(happinesse, ego, twitteType, popularity, isLiked);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
