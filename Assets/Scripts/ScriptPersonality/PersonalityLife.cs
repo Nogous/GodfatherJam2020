@@ -57,7 +57,6 @@ public class PersonalityLife : MonoBehaviour
 
     public void ReceivingTwitte(int _happinesse, int _ego, TwitteType type, int _popularity, bool isLiked = false)
     {
-        Debug.Log(_happinesse + ", " + _ego);
         
         int i = type.GetHashCode();
         if (isLiked)
@@ -80,8 +79,7 @@ public class PersonalityLife : MonoBehaviour
         sliderEgo.value = (float)ego/100f;
         sliderEgoText.text = ego.ToString();
 
-        if (popularity > 100) popularity = 100;
-        //follower.text = popularity.ToString();
+        follower.text = "Followers " + popularity.ToString();
 
         UpdateFace();
     }

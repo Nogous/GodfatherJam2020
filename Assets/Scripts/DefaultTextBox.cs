@@ -66,6 +66,17 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
         ego = _ego;
         happinesse = _happinesse;
 
+        isLiked = false;
+        isRT = false;
+
+    isSlow = false;
+        isDeliver = false;
+
+        ban.sprite = banGris;
+        rT.sprite = rtGris;
+        del.sprite = delGris;
+        like.sprite = likeGris;
+
         speudoText.text = pseudo + "\n"+"@"+pseudo;
         contentText.text = content;
 
@@ -163,7 +174,7 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
 
     public void OnClickDel()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     public void OnClickLike()
