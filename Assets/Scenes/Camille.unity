@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 555691909}
   - component: {fileID: 555691908}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GetGoogle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -917,12 +917,16 @@ MonoBehaviour:
   idleModeSheetName: Sheet1
   idleModeCellRange:
     startCell: A1
-    endCell: D2
+    endCell: F6
   apiKey: AIzaSyC-nolb4VMwWcqWho6KDqJaIxjWUX1dtDQ
-  resultJson: "{\n  \"range\": \"Sheet1!A1:D2\",\n  \"majorDimension\": \"ROWS\",\n 
-    \"values\": [\n    [\n      \"Salut\",\n      \"tu\",\n      \"vas\",\n     
+  resultJson: "{\n  \"range\": \"Sheet1!A1:F6\",\n  \"majorDimension\": \"ROWS\",\n 
+    \"values\": [\n    [\n      \"1=iucv\",\n      \"tu\",\n      \"vas\",\n     
     \"bien\"\n    ],\n    [\n      \"q\",\n      \"iygf\",\n      \"oug\",\n     
-    \"12\"\n    ]\n  ]\n}\n"
+    \"12\"\n    ],\n    [\n      \"lorel\",\n      \"\",\n      \"owg\",\n      \"de\"\n   
+    ],\n    [\n      \"egbe\",\n      \"eb\",\n      \"ebeb\",\n      \"eberfb\"\n   
+    ],\n    [\n      \"45\",\n      \"ergb\",\n      \"547\",\n      \"erbv\"\n   
+    ],\n    [\n      \"1\",\n      \"2\",\n      \"3\",\n      \"4\",\n      \"5\",\n     
+    \"6\"\n    ]\n  ]\n}\n"
   result: []
 --- !u!4 &555691909
 Transform:
