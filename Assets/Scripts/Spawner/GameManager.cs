@@ -86,9 +86,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("spawnRange");
-            currentSpawnCountdawn = SpawnRateTwitte;
             Spawner();
+            currentSpawnCountdawn = SpawnRateTwitte;
         }
     }
 

@@ -519,7 +519,7 @@ MonoBehaviour:
   rTSpawnMultiplicator: 1
   likeDuration: 1
   rTDuration: 1
-  SpawnRateTwitte: 1
+  SpawnRateTwitte: 10
   normalTwitteSpawnRate: 50
   insultesTwitteSpawnRate: 100
   complimentsTwitteSpawnRate: 50
@@ -884,6 +884,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &555691907
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 555691909}
+  - component: {fileID: 555691908}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &555691908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555691907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5010d6ad31ce8bd4a9b6cf9d30c25b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  documentId: 1cK1PGkBKDU-Fo6dLv8e1onFvy0m02ja3UFQIgcwgJgA
+  idleModeSheetName: Sheet1
+  idleModeCellRange:
+    startCell: A1
+    endCell: D2
+  apiKey: AIzaSyC-nolb4VMwWcqWho6KDqJaIxjWUX1dtDQ
+  resultJson: "{\n  \"range\": \"Sheet1!A1:D2\",\n  \"majorDimension\": \"ROWS\",\n 
+    \"values\": [\n    [\n      \"Salut\",\n      \"tu\",\n      \"vas\",\n     
+    \"bien\"\n    ],\n    [\n      \"q\",\n      \"iygf\",\n      \"oug\",\n     
+    \"12\"\n    ]\n  ]\n}\n"
+  result: []
+--- !u!4 &555691909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555691907}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577430289
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1175,7 @@ MonoBehaviour:
   ego: 0
   factorHappinesse: 1
   factorEgo: 1
-  likeFactor: 1
+  likeFactor: 2
   twitteTypeFactor: 010000000f0000000f0000000a00000001000000
   follower: {fileID: 1725067047}
   sliderEgo: {fileID: 987132947}

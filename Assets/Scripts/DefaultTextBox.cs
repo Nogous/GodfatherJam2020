@@ -69,7 +69,7 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
         isLiked = false;
         isRT = false;
 
-    isSlow = false;
+        isSlow = false;
         isDeliver = false;
 
         ban.sprite = banGris;
