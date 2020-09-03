@@ -15,7 +15,7 @@ public class MoveTo : MonoBehaviour
     {
         if (isMoving)
         {
-            transform.position += (target.position - transform.position).normalized * speed;
+            transform.position += (target.position - transform.position).normalized * speed * Time.deltaTime;
         }
 
         if (Vector2.Distance(transform.position, target.position) < offsetKill)
