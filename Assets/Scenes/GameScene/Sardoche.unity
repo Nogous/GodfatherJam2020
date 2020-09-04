@@ -785,7 +785,7 @@ PrefabInstance:
     - target: {fileID: 6503739927468856546, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
         type: 3}
       propertyPath: tutoDuration
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6503739927519098052, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
         type: 3}
