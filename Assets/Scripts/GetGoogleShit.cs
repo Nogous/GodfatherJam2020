@@ -80,7 +80,6 @@ public class GetGoogleShit : MonoBehaviour
                 resultJson = request.downloadHandler.text;
 
                 SheetData sheetData = JsonConvert.DeserializeObject<SheetData>(resultJson, new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore });
-
                 for (int i = sheetData.values.Count;i-->0;)
                 {
                     TwitteType type = TwitteType.Normal;

@@ -92,7 +92,7 @@ public class WinCondition : MonoBehaviour
     {
         
         Debug.Log("Start intro");
-        yield return new WaitForSeconds(tutoDuration);
+        yield return new WaitForSeconds(introPersoDuration);
         introPerso.Play("fade_Out_introPerso");
         yield return new WaitForSeconds(transitionTime);
         Debug.Log("End intro");

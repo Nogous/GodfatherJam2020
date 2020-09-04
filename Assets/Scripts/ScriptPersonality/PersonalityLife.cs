@@ -19,7 +19,7 @@ public class PersonalityLife : MonoBehaviour
     private int startMood = 50;
 
     public int popularity;
-    private int startPopularity = 20;
+    private int startPopularity = 40;
 
     public int ego;
     private int startEgo = 50;
@@ -55,6 +55,9 @@ public class PersonalityLife : MonoBehaviour
 
     private void Start()
     {
+        sliderEgoText.text = "";
+        sliderHappyText.text = "";
+
         UpdateFace();
         ReceivingTwitte(0,0,TwitteType.Normal);
 
@@ -82,8 +85,28 @@ public class PersonalityLife : MonoBehaviour
 
     public void GameOver()
     {
+        string gameOverSting = "";
+        if (happinesse>=100)
+        {
+            gameOverSting = "exiteGameOver";
+        }
+        else if (happinesse<=0)
+        {
+            gameOverSting = "colereGameOver";
+        }
+        else if (ego>=100)
+        {
+            gameOverSting = "eggoGameOver";
+        }
+        else if(ego<=0)
+        {
+            gameOverSting = "depresGameOver";
+        }
+
+        Debug.Log("GameOver : " + gameOverSting);
+
         isIngame = false;
-        GameManager.Instance.GameOver();
+        GameManager.Instance.GameOver(gameOverSting);
     }
 
     public void ReceivingTwitte(int _happinesse, int _ego, TwitteType type, int _popularity, bool isLiked = false)
@@ -105,10 +128,23 @@ public class PersonalityLife : MonoBehaviour
         if (happinesse > 100) happinesse = 100;
         if (ego > 100) ego = 100;
 
-        sliderHappy.value = (float)happinesse / 100f;
-        sliderHappyText.text = happinesse.ToString();
-        sliderEgo.value = (float)ego/100f;
-        sliderEgoText.text = ego.ToString();
+        float tmphappy = ((float)happinesse - 100);
+        if (tmphappy<0)
+        {
+            tmphappy = -tmphappy;
+        }
+
+        sliderHappy.value = tmphappy / 100f;
+        //sliderHappyText.text = happinesse.ToString();
+
+        float tmpego = ((float)ego - 100);
+        if (tmpego<0)
+        {
+            tmpego = -tmpego;
+        }
+
+        sliderEgo.value = tmpego / 100f;
+        //sliderEgoText.text = ego.ToString();
 
         follower.text = "Followers " + popularity.ToString();
 
@@ -197,50 +233,21 @@ public class PersonalityLife : MonoBehaviour
             }
         }
 
-        /*
-        if (happinesse <= 50 && happinesse > 45)
+        if (happinesse >= 100)
         {
-            statu = StatuDePersonality.Content;
+            GameManager.Instance.GameOver("exiteGameOver");
         }
-        else if (happinesse <= 45 && happinesse > 23)
+        else if (happinesse <= 0)
         {
-            statu = StatuDePersonality.Mitigate;
+            GameManager.Instance.GameOver("colereGameOver");
         }
-        else if (happinesse <= 23 && happinesse >=0)
+        else if (ego >= 100)
         {
-            statu = StatuDePersonality.Anger;
+            GameManager.Instance.GameOver("eggoGameOver");
         }
-
-        switch (statu)
+        else if (ego <= 0)
         {
-            case StatuDePersonality.Content:
-                image.sprite = happyPers;
-                break;
-
-            case StatuDePersonality.Mitigate:
-                image.sprite = mitigatePers;
-                break;
-
-            case StatuDePersonality.Anger:
-                image.sprite = angerPers;
-                break;
-            default:
-                break;
-
+            GameManager.Instance.GameOver("depresGameOver");
         }
-
-        if (ego <= 100 && ego > 77)
-        {
-            statu = StatuDePersonality.Exited;
-        }
-        else if (ego <= 77 && ego > 55)
-        {
-            statu = StatuDePersonality.Happy;
-        }
-        else if (ego <= 55 && ego >= 50)
-        {
-            statu = StatuDePersonality.Content;
-        }
-        */
     }
 }
