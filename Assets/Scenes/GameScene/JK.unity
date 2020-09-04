@@ -382,5 +382,26 @@ PrefabInstance:
       propertyPath: isTuto
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6503739927519098052, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503739927519098052, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503739927519098052, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503739927519098052, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dccfab2e8a3ddfd4ab2a585feb9d34d0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc59b5d9c3d35c9468e4bad8deb6081b, type: 3}
