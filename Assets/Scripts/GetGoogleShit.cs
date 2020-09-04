@@ -44,11 +44,6 @@ public class GetGoogleShit : MonoBehaviour
     public string resultJson;
     public string[] result;
 
-    public void Start()
-    {
-        LoadSheet();
-    }
-
     [ContextMenu("GetShit")]
     public void LoadSheet()
     {

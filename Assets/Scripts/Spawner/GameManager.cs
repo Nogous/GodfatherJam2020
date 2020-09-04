@@ -19,9 +19,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public float gameDuration = 60f;
-    private float currentTimeGame;
-
     [Header("Counrdawn")]
     public float likeCountdawn = 1f;
     public float reTwitteCountdawn = 1f;
@@ -61,15 +58,14 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        GetGoogleShit.Instance.LoadSheet();
     }
 
     private void Update()
     {
-
-
         if (canSpawnTwitte)
+        {
             UpdateGame();
+        }
     }
 
     public void StartRound(List<TwitteData> twitteDatas)
@@ -78,7 +74,6 @@ public class GameManager : MonoBehaviour
 
         canSpawnTwitte = true;
         currentLikeCount = 0;
-        currentTimeGame = gameDuration;
         currentSpawnCountdawn = 0;
 
         blacklistName.Clear();
@@ -93,12 +88,6 @@ public class GameManager : MonoBehaviour
         if (currentRTCount > 0)
         {
             currentLikeCount -= Time.deltaTime;
-        }
-
-        currentTimeGame -= Time.deltaTime;
-        if (currentTimeGame <= 0)
-        {
-            Debug.Log("End party");
         }
 
         if (currentSpawnCountdawn > 0)

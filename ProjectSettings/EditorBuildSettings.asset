@@ -5,13 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Camille.unity
-    guid: 18cff83766cb2b7469d37962f17a039a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Thomas Test.unity
     guid: 926020ccd6cd5874287f9dd6bbcf00af
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Personnality.unity
     guid: 4208c7e4a6cc3d34895c275c79f6e2d0
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: ec79f981744943d4c81968b7c6c12fc1
+  - enabled: 1
+    path: Assets/Scenes/GameScene/JK.unity
+    guid: b504b5148d89bab40895a56ffc218193
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Sardoche.unity
+    guid: d6470cfd15bdb1c44a8d33aae50b9817
+  - enabled: 1
+    path: Assets/Scenes/GameScene/Trump.unity
+    guid: 5664b34cd05b2ff43af2cec77c0a23f8
   m_configObjects: {}
