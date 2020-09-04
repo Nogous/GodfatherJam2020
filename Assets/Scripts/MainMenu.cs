@@ -10,14 +10,24 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void LevelLoader()
+    public void LevelTwo()
     {
-        SceneManager.LoadScene("");
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
     {
         Debug.Log("QUIT !!");
-        //Application.Quit();
+        Application.Quit();
+    }
+
+    public void LevelOne()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LevelTree()
+    {
+        SceneManager.LoadScene(3);
     }
 }
