@@ -388,6 +388,26 @@ PrefabInstance:
       propertyPath: idleModeSheetName
       value: Donald Trump
       objectReference: {fileID: 0}
+    - target: {fileID: 6503739927231340030, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: SpawnRateTwitte
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503739927231340030, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: reTwitteCountdawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503739927231340030, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: banTwitteCountdawn
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503739927231340030, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: rTDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6503739927288544983, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
         type: 3}
       propertyPath: m_AnchorMax.y
