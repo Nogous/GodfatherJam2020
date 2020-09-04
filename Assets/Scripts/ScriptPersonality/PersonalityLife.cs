@@ -112,6 +112,26 @@ public class PersonalityLife : MonoBehaviour
 
         follower.text = "Followers " + popularity.ToString();
 
+        switch (type)
+        {
+            case TwitteType.CritNegative:
+                GameManager.Instance.isRTCritNegative = true;
+                break;
+            case TwitteType.CritPositive:
+                GameManager.Instance.isRTCritPositive = true;
+                break;
+            case TwitteType.Insulte:
+                GameManager.Instance.isRTInsulte = true;
+                break;
+            case TwitteType.Compliment:
+                GameManager.Instance.isRTCompliment = true;
+                break;
+            case TwitteType.Inutile:
+                GameManager.Instance.isRTInutile = true;
+                break;
+        }
+        StartCoroutine(GameManager.Instance.BoolBackTo(type));
+
         UpdateFace();
     }
     public void ReceivingTwitte(int _happinesse, int _ego, TwitteType type)

@@ -22,9 +22,11 @@ public class GameManager : MonoBehaviour
     [Header("Counrdawn")]
     public float likeCountdawn = 1f;
     public float reTwitteCountdawn = 1f;
+    public float banTwitteCountdawn = 1f;
 
     [HideInInspector]public float currentLikeCount = 0;
     [HideInInspector] public float currentRTCount = 0;
+    [HideInInspector] public float currentBanCount = 0;
 
     [Header("")]
     public float likeSpawnMultiplicator = 1;
@@ -77,12 +79,68 @@ public class GameManager : MonoBehaviour
     public void StartRound(List<TwitteData> twitteDatas)
     {
         persoTwittes = twitteDatas;
+        for (int i = twitteDatas.Count;i-->0;)
+        {
+            switch (twitteDatas[i].twitteType)
+            {
+                case TwitteType.CritNegative:
+                    lRTCritNegative.Add(twitteDatas[i]);
+                    break;
+                case TwitteType.CritPositive:
+                    lRTCritPositive.Add(twitteDatas[i]);
+                    break;
+                case TwitteType.Insulte:
+                    lRTInsulte.Add(twitteDatas[i]);
+                    break;
+                case TwitteType.Compliment:
+                    lRTCompliment.Add(twitteDatas[i]);
+                    break;
+                case TwitteType.Inutile:
+                    lRTInutile.Add(twitteDatas[i]);
+                    break;
+            }
+        }
 
         canSpawnTwitte = true;
         currentLikeCount = 0;
         currentSpawnCountdawn = 0;
 
         blacklistName.Clear();
+    }
+
+    public bool isRTCritNegative;
+    private List<TwitteData> lRTCritNegative = new List<TwitteData>();
+    public bool isRTCritPositive;
+    private List<TwitteData> lRTCritPositive = new List<TwitteData>();
+    public bool isRTInsulte;
+    private List<TwitteData> lRTInsulte = new List<TwitteData>();
+    public bool isRTCompliment;
+    private List<TwitteData> lRTCompliment = new List<TwitteData>();
+    public bool isRTInutile;
+    private List<TwitteData> lRTInutile = new List<TwitteData>();
+
+    public IEnumerator BoolBackTo(TwitteType type)
+    {
+        yield return new WaitForSeconds(rTDuration);
+
+        switch (type)
+        {
+            case TwitteType.CritNegative:
+                isRTCritNegative = false;
+                break;
+            case TwitteType.CritPositive:
+                isRTCritPositive = false;
+                break;
+            case TwitteType.Insulte:
+                isRTInsulte = false;
+                break;
+            case TwitteType.Compliment:
+                isRTCompliment = false;
+                break;
+            case TwitteType.Inutile:
+                isRTInutile = false;
+                break;
+        }
     }
 
     private void UpdateGame()
@@ -104,6 +162,10 @@ public class GameManager : MonoBehaviour
         {
             Spawner();
             currentSpawnCountdawn = SpawnRateTwitte;
+            if (isRTCritNegative)
+            {
+                Spawner();
+            }
         }
     }
 
@@ -126,6 +188,61 @@ public class GameManager : MonoBehaviour
 
     private bool canSpawnTwitte = false;
     public float spawnRange = 10f;
+
+    private void Spawner(TwitteType type)
+    {
+        if (!canSpawnTwitte) return;
+
+        if (ObjectPooler.Instance == null)
+        {
+            Debug.LogError("No ObjectPooler on scene");
+            return;
+        }
+
+        //random pos
+        Vector3 tmpPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized * spawnRange;
+
+        while (tmpPos.magnitude < .9f)
+        {
+            tmpPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0).normalized * spawnRange;
+        }
+
+        List<TwitteData> _persoTwittes;
+
+        switch (type)
+        {
+            case TwitteType.CritNegative:
+                _persoTwittes = lRTCritNegative;
+                break;
+            case TwitteType.CritPositive:
+                _persoTwittes = lRTCritPositive;
+                break;
+            case TwitteType.Insulte:
+                _persoTwittes = lRTInsulte;
+                break;
+            case TwitteType.Compliment:
+                _persoTwittes = lRTCompliment;
+                break;
+            case TwitteType.Inutile:
+                _persoTwittes = lRTInutile;
+                break;
+            default:
+                return;
+        }
+
+        int twiteNumber = Random.Range(0, _persoTwittes.Count);
+
+        for (int i = blacklistName.Count; i-- > 0;)
+        {
+            if (_persoTwittes[twiteNumber].pseudo == blacklistName[i]) return;
+        }
+
+
+        //Debug.Log(persoTwittes[twiteNumber].pseudo);
+        ObjectPooler.Instance.SpawnFromPool("Twitte", (perso1Obj.transform.position + tmpPos), Quaternion.identity, perso1Obj.GetComponent<PersonalityLife>(), _persoTwittes[twiteNumber].pseudo, persoTwittes[twiteNumber].corp, _persoTwittes[twiteNumber].impactEgo, _persoTwittes[twiteNumber].impactHappy);
+
+    }
+
     private void Spawner()
     {
         if (!canSpawnTwitte) return;

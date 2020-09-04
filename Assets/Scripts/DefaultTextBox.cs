@@ -154,6 +154,7 @@ public class DefaultTextBox : MonoBehaviour, IDragHandler, IEndDragHandler, IPoi
     #region OnClick
     public void OnClickBan()
     {
+        if (GameManager.Instance.currentBanCount > 0) return;
         GameManager.Instance.AddBan(pseudo);
         OnClickDel();
     }
