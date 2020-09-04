@@ -476,6 +476,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: ca153e6a26d4d454686e8edb33028b8b,
         type: 3}
+    - target: {fileID: 6503739926223730008, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: popularityCountdawnDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6503739926230492887, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
         type: 3}
       propertyPath: m_Name

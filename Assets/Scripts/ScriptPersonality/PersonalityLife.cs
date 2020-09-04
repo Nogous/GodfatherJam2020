@@ -19,7 +19,7 @@ public class PersonalityLife : MonoBehaviour
     private int startMood = 50;
 
     public int popularity;
-    private int startPopularity = 20;
+    private int startPopularity = 40;
 
     public int ego;
     private int startEgo = 50;
