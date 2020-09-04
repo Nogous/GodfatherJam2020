@@ -55,6 +55,9 @@ public class PersonalityLife : MonoBehaviour
 
     private void Start()
     {
+        sliderEgoText.text = "";
+        sliderHappyText.text = "";
+
         UpdateFace();
         ReceivingTwitte(0,0,TwitteType.Normal);
 
@@ -105,10 +108,23 @@ public class PersonalityLife : MonoBehaviour
         if (happinesse > 100) happinesse = 100;
         if (ego > 100) ego = 100;
 
-        sliderHappy.value = (float)happinesse / 100f;
-        sliderHappyText.text = happinesse.ToString();
-        sliderEgo.value = (float)ego/100f;
-        sliderEgoText.text = ego.ToString();
+        float tmphappy = ((float)happinesse - 100);
+        if (tmphappy<0)
+        {
+            tmphappy = -tmphappy;
+        }
+
+        sliderHappy.value = tmphappy / 100f;
+        //sliderHappyText.text = happinesse.ToString();
+
+        float tmpego = ((float)ego - 100);
+        if (tmpego<0)
+        {
+            tmpego = -tmpego;
+        }
+
+        sliderEgo.value = tmpego / 100f;
+        //sliderEgoText.text = ego.ToString();
 
         follower.text = "Followers " + popularity.ToString();
 
