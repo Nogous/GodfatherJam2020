@@ -391,6 +391,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 3.2
       objectReference: {fileID: 0}
+    - target: {fileID: 2061889529670283026, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2166762196382208510, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
         type: 3}
       propertyPath: m_Sprite
@@ -594,6 +599,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6503739927086540838, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5d46c4358bc749c4c877d5c0e58e7a7c,
+        type: 3}
     - target: {fileID: 6503739927231340030, guid: bc59b5d9c3d35c9468e4bad8deb6081b,
         type: 3}
       propertyPath: SpawnRateTwitte
