@@ -85,8 +85,28 @@ public class PersonalityLife : MonoBehaviour
 
     public void GameOver()
     {
+        string gameOverSting = "";
+        if (happinesse>=100)
+        {
+            gameOverSting = "exiteGameOver";
+        }
+        else if (happinesse<=0)
+        {
+            gameOverSting = "colereGameOver";
+        }
+        else if (ego>=100)
+        {
+            gameOverSting = "eggoGameOver";
+        }
+        else if(ego<=0)
+        {
+            gameOverSting = "depresGameOver";
+        }
+
+        Debug.Log("GameOver : " + gameOverSting);
+
         isIngame = false;
-        GameManager.Instance.GameOver();
+        GameManager.Instance.GameOver(gameOverSting);
     }
 
     public void ReceivingTwitte(int _happinesse, int _ego, TwitteType type, int _popularity, bool isLiked = false)
@@ -213,50 +233,21 @@ public class PersonalityLife : MonoBehaviour
             }
         }
 
-        /*
-        if (happinesse <= 50 && happinesse > 45)
+        if (happinesse >= 100)
         {
-            statu = StatuDePersonality.Content;
+            GameManager.Instance.GameOver("exiteGameOver");
         }
-        else if (happinesse <= 45 && happinesse > 23)
+        else if (happinesse <= 0)
         {
-            statu = StatuDePersonality.Mitigate;
+            GameManager.Instance.GameOver("colereGameOver");
         }
-        else if (happinesse <= 23 && happinesse >=0)
+        else if (ego >= 100)
         {
-            statu = StatuDePersonality.Anger;
+            GameManager.Instance.GameOver("eggoGameOver");
         }
-
-        switch (statu)
+        else if (ego <= 0)
         {
-            case StatuDePersonality.Content:
-                image.sprite = happyPers;
-                break;
-
-            case StatuDePersonality.Mitigate:
-                image.sprite = mitigatePers;
-                break;
-
-            case StatuDePersonality.Anger:
-                image.sprite = angerPers;
-                break;
-            default:
-                break;
-
+            GameManager.Instance.GameOver("depresGameOver");
         }
-
-        if (ego <= 100 && ego > 77)
-        {
-            statu = StatuDePersonality.Exited;
-        }
-        else if (ego <= 77 && ego > 55)
-        {
-            statu = StatuDePersonality.Happy;
-        }
-        else if (ego <= 55 && ego >= 50)
-        {
-            statu = StatuDePersonality.Content;
-        }
-        */
     }
 }

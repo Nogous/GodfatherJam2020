@@ -58,8 +58,16 @@ public class GameManager : MonoBehaviour
 
     private List<string> blacklistName = new List<string>();
 
+    public GameObject colereGameOver;
+    public GameObject depresGameOver;
+    public GameObject eggoGameOver;
+    public GameObject exiteGameOver;
+    public GameObject noFanGameOver;
+    public GameObject screenGameOver;
+
     private void Start()
     {
+        screenGameOver.SetActive(false);
     }
 
     private void Update()
@@ -70,8 +78,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver()
+    public void GameOver(string i)
     {
+        screenGameOver.SetActive(true);
+        switch (i)
+        {
+            case "colereGameOver":
+                colereGameOver.SetActive(true);
+                break;
+            case "depresGameOver":
+                depresGameOver.SetActive(true);
+                break;
+            case "eggoGameOver":
+                eggoGameOver.SetActive(true);
+                break;
+            case "exiteGameOver":
+                exiteGameOver.SetActive(true);
+                break;
+            default:
+                noFanGameOver.SetActive(true);
+                break;
+        }
         canSpawnTwitte = false;
         StopAllCoroutines();
     }
@@ -79,6 +106,7 @@ public class GameManager : MonoBehaviour
     public void StartRound(List<TwitteData> twitteDatas)
     {
         persoTwittes = twitteDatas;
+
         for (int i = twitteDatas.Count;i-->0;)
         {
             switch (twitteDatas[i].twitteType)
@@ -165,6 +193,16 @@ public class GameManager : MonoBehaviour
             if (isRTCritNegative)
             {
                 Spawner();
+                if (isRTCritNegative)
+                    Spawner(TwitteType.CritNegative);
+                if (isRTCritPositive)
+                    Spawner(TwitteType.CritPositive);
+                if (isRTInsulte)
+                    Spawner(TwitteType.Insulte);
+                if (isRTCompliment)
+                    Spawner(TwitteType.Compliment);
+                if (isRTInutile)
+                    Spawner(TwitteType.Inutile);
             }
         }
     }
@@ -231,6 +269,7 @@ public class GameManager : MonoBehaviour
         }
 
         int twiteNumber = Random.Range(0, _persoTwittes.Count);
+        Debug.Log(twiteNumber);
 
         for (int i = blacklistName.Count; i-- > 0;)
         {
