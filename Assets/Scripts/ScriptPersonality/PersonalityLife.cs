@@ -24,6 +24,10 @@ public class PersonalityLife : MonoBehaviour
     public int ego;
     private int startEgo = 50;
 
+
+    public float popularityCountdawnDuration = 5f;
+    private float popularityCountdawn = 5f;
+
     [Header("DataPoints")]
     public int factorHappinesse = 1;
     public int factorEgo = 1;
@@ -53,6 +57,33 @@ public class PersonalityLife : MonoBehaviour
     {
         UpdateFace();
         ReceivingTwitte(0,0,TwitteType.Normal);
+
+        popularityCountdawn = popularityCountdawnDuration;
+    }
+
+
+    private void Update()
+    {
+        if (!isIngame) return;
+        popularityCountdawn -= Time.deltaTime;
+        if (popularityCountdawn <= 0){
+            popularity--;
+            follower.text = "Followers " + popularity.ToString();
+            popularityCountdawn = popularityCountdawnDuration;
+
+            if (popularity <= 0)
+            {
+                GameOver();
+            }
+        }
+    }
+
+    private bool isIngame = true;
+
+    public void GameOver()
+    {
+        isIngame = false;
+        GameManager.Instance.GameOver();
     }
 
     public void ReceivingTwitte(int _happinesse, int _ego, TwitteType type, int _popularity, bool isLiked = false)

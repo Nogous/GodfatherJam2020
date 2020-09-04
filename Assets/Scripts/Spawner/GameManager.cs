@@ -68,6 +68,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GameOver()
+    {
+        canSpawnTwitte = false;
+        StopAllCoroutines();
+    }
+
     public void StartRound(List<TwitteData> twitteDatas)
     {
         persoTwittes = twitteDatas;
